@@ -18,6 +18,7 @@
 -Accuracy for 64X64 images on 70:15:15 Split and gamma 0.000000001 on validation set and test set :-  (9.62962962962963, 10.0)
 -Accuracy for 64X64 images on 70:15:15 Split and gamma 10 on validation set and test set :-  (9.62962962962963, 10.0)
 -Accuracy for 64X64 images on 70:15:15 Split and gamma 100 on validation set and test set :-  (9.62962962962963, 10.0)
+-[On validation set](https://drive.google.com/uc?export=view&id=166C_XqpcaF18s8RSkalpUpgypbX8XAQr)
 ```
 #### For 32X32 Sample images
 ```
