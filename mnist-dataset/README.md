@@ -1,5 +1,7 @@
 #MNIST Dataset
+```
 ##Accuracy on Test Data for various resolution of Sample images
+````
 -Accuracy for 64X64 image for gamma 0.0001 = 0.9444
 -Accuracy for 32X32 image for gamma 0.0001 = 0.77
 -Accuracy for 4X4 image for gamma 0.0001 = 0.86
@@ -7,8 +9,9 @@
 -Accuracy for 64X64 image for gamma 0.01 = 0.1
 -Accuracy for 32X32 image for gamma 0.01 = 0.77
 -Accuracy for 4X4 image for gamma 0.01 = 0.86
-
+````
 ##Accuray on Validation set and test set for varoius gamma(hyperparameter) values
+````
 #### For 64X64 Sample images
 ```
 -Accuracy for 64X64 images on 70:15:15 Split and gamma 0.0001 on validation set and test set :-  (90.0, 98.88888888888889)
