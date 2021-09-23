@@ -11,7 +11,7 @@ digits = datasets.load_digits()
 
 n_sample = len(digits.images)
 data = digits.images.reshape((n_sample,-1))
-hyperparameter_values = Decimal(sys.argv[1])
+hyperparameter_values = Decimal(sys.argv[1]) 
 resize_images_size = [0.25,0.5,1,2,4,8]
 print("\t\tResize \t\tDataset \t\tgamma_value \t\tAccuracy")
 for i in range(len(resize_images_size)):
