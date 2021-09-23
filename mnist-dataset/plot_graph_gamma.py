@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 import sys
 from decimal import Decimal
 
+
 digits = datasets.load_digits()
 
 n_sample = len(digits.images)
