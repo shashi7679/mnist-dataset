@@ -45,6 +45,7 @@ for i in range(len(resize_images_size)):
         os.mkdir(output_folder)
         dump(model,os.path.join(output_folder,'model.joblib'))
         print("Saving Model for {}".format(hyperparameter_values[j]))
+    
     max_valid_acc_model_candidate = max(model_candidate,key=lambda x:x["acc_valid"])
     best_model_folder ="./models/tt_{}_val_{}_rescale_{}_gamma_{}".format(test_size,val_size,resize_images_size[i],max_valid_acc_model_candidate["gamma"])
     path = os.path.join(best_model_folder,'model.joblib')
