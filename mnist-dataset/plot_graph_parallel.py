@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from joblib import dump,load
 import os
 
+
 digits = datasets.load_digits()
 
 n_sample = len(digits.images)
