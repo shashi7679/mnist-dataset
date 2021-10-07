@@ -7,7 +7,7 @@ from sklearn import datasets,svm,metrics
 from sklearn.model_selection import train_test_split
 from joblib import dump,load
 import os
-from utils import preprocessing,create_split,get_acc
+from utils import preprocessing,create_split,get_acc,run_classification_exp
 
 
 
@@ -32,25 +32,26 @@ for i in range(len(resize_images_size)):
         model = svm.SVC(gamma = hyperparameter_values[j])
         test_size = 0.15
         val_size = 0.15
-        model.fit(train_X,train_Y)
-        acc_val  = get_acc(model=model,X = val_X,Y = val_Y)
-        if acc_val<0.20:
-            print("Skipping for {}".format(hyperparameter_values[j]))
-            continue
-        candidate = {
-            "acc_valid" : acc_val,
-            "gamma" : hyperparameter_values[j],
-        }
-        model_candidate.append(candidate)
+        #model.fit(train_X,train_Y)
+        #acc_val  = get_acc(model=model,X = val_X,Y = val_Y)
         output_folder = "./models/tt_{}_val_{}_rescale_{}_gamma_{}".format(test_size,val_size,resize_images_size[i],hyperparameter_values[j])
-        os.mkdir(output_folder)
-        dump(model,os.path.join(output_folder,'model.joblib'))
-        print("Saving Model for {}".format(hyperparameter_values[j]))
+        #os.mkdir(output_folder)
+        #dump(model,os.path.join(output_folder,'model.joblib'))
+        output_model_path = os.path.join(output_folder,'model.joblib')
+        metrics_valid = run_classification_exp(train_X = train_X,train_Y = train_Y,val_X = val_X,val_Y = val_Y,gamma = hyperparameter_values[j],output_model_path = output_model_path)
+        if metrics_valid:
+            candidate = {
+                "acc_valid" : metrics_valid["acc"],
+                "f1_valid" : metrics_valid["f1"],
+                "gamma" : hyperparameter_values[j],
+            }
+            model_candidate.append(candidate)
+            print("Saving Model for {}".format(hyperparameter_values[j]))
     
     max_valid_acc_model_candidate = max(model_candidate,key=lambda x:x["acc_valid"])
     best_model_folder ="./models/tt_{}_val_{}_rescale_{}_gamma_{}".format(test_size,val_size,resize_images_size[i],max_valid_acc_model_candidate["gamma"])
     path = os.path.join(best_model_folder,'model.joblib')
     model = load(path)
     acc_test = get_acc(model=model,X = test_X,Y = test_Y)
-    print("\t\t ",resize_images_size[i] ,"\t\tTest Set","\t\t",hyperparameter_values[j],"\t\t",acc_test*100)
+    print("\t\t ",resize_images_size[i] ,"\t\tTest Set","\t\t",max_valid_acc_model_candidate["gamma"],"\t\t",max_valid_acc_model_candidate["acc_valid"]*100)
         
