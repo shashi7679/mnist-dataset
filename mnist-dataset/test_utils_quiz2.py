@@ -52,6 +52,15 @@ def test_create_split():
     assert test_split == ceil(0.2*length)
     assert val_split == ceil(0.1*length)
     assert(train_split + val_split + test_split)== length
+    train_split_label = len(train_Y)
+    test_split_label = len(test_Y)
+    val_split_label = len(val_Y)
+    print(" Length Training Sample X :- ",len(train_X)," Y :- ",len(train_Y))
+    print(" Length Test Sample X :- ",len(test_X)," Y :- ",len(test_Y))
+    print(" Length val Sample X :- ",len(val_X)," Y :- ",len(val_Y))
+    print(" Shape Training Sample X :- ",train_X.shape," Y :- ",train_Y.shape)
+    print(" Shape Test Sample X :- ",test_X.shape," Y :- ",test_Y.shape)
+    print(" shape val Sample X :- ",val_X.shape," Y :- ",val_Y.shape)
 
 
 test_create_split()
