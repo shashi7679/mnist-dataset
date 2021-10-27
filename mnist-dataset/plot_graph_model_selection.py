@@ -7,7 +7,7 @@ from sklearn import datasets,svm,metrics
 from sklearn.model_selection import train_test_split
 from joblib import dump,load
 import os
-from utils import preprocessing,create_split,get_acc
+from test_utils_quiz2 import preprocessing,create_split,get_acc
 
 
 
@@ -25,13 +25,15 @@ for i in range(len(resize_images_size)):
     resized_images = preprocessing(digits.images,resize_images_size[i])
     resized_images = np.array(resized_images)
     data = resized_images.reshape((n_sample,-1))
-    train_X,train_Y,test_X,test_Y,val_X,val_Y = create_split(data = data,target = digits.target,train_size=0.7,test_size=0.15,val_size = 0.15)
+    test_size = 0.20
+    val_size = 0.10
+    train_size = 0.70
+    train_X,train_Y,test_X,test_Y,val_X,val_Y = create_split(data = data,target = digits.target,train_size= train_size,test_size=test_size,val_size = val_size)
     for j in range(len(hyperparameter_values)):
         resized_images = np.array(resized_images)
         data = resized_images.reshape((n_sample,-1))
         model = svm.SVC(gamma = hyperparameter_values[j])
-        test_size = 0.15
-        val_size = 0.15
+        
         model.fit(train_X,train_Y)
         acc_val  = get_acc(model=model,X = val_X,Y = val_Y)
         if acc_val<0.20:
