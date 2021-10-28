@@ -89,6 +89,7 @@ for round in range(5):
             print("\t\t\t\t\t\t  Decision Tree   \t\t\t\t")
             print("\t\tValidation Set","\t\t",hyperparameter_values_tree[j],"\t\t",acc_val_tree*100,"\t\t",f1_score_tree)
             #print("\t\t ",resize_images_size[i] ,"\t\tTest Set","\t\t",hyperparameter_values[j],"\t\t",acc_test*100)
+            print("\n")
         max_valid_f1_model_candidate_SVM = max(
                 model_candidates_SVM, key=lambda x: x["f1_valid"]
             )
@@ -138,11 +139,11 @@ for resolution in range(0,6):
     print("For ",2**(resolution+1),"X",2**(resolution+1)," resolution of Samples")
     print("Mean Accuracy of SVM over 5 Rounds :- ",acc_meanReso_SVM/6)
     print("Mean Accuracy of Tree over 5 Rounds :- ",acc_meanReso_tree/6)
-    print("Varience of Accuracy of SVM over 5 Rounds :- ",statistics.pstdev(acc_var_SVM))
-    print("Varience of Accuracy of Tree over 5 Rounds :- ",statistics.pstdev(acc_var_tree))
+    print("Standard Deviation of Accuracy of SVM over 5 Rounds :- ",statistics.pstdev(acc_var_SVM))
+    print("Standard Deviation of Accuracy of Tree over 5 Rounds :- ",statistics.pstdev(acc_var_tree))
     print("Mean f1-score of SVM over 5 Rounds :- ",f1_meanReso_SVM/6)
     print("Mean f1-score of Tree over 5 Rounds :- ",f1_meanReso_tree/6)
-    print("Varience of f1-score of SVM over 5 Rounds :- ",statistics.pstdev(f1_var_SVM))
-    print("Varience of f1-score of Tree over 5 Rounds :- ",statistics.pstdev(f1_var_tree))
+    print("Standard Deviation of f1-score of SVM over 5 Rounds :- ",statistics.pstdev(f1_var_SVM))
+    print("Standard Deviation of f1-score of Tree over 5 Rounds :- ",statistics.pstdev(f1_var_tree))
     
 
