@@ -1,5 +1,10 @@
 #MNIST Dataset
+## **SVC Vs. DecisionTreeClassifier**
+![Output](https://drive.google.com/uc?export=view&id=1avqRjxc6m8IF8L6BrdNieksWZdQB5ls9)
 ```
+
+
+
 ##Accuracy on Test Data for various resolution of Sample images
 ````
 -Accuracy for 64X64 image for gamma 0.0001 = 0.9444
