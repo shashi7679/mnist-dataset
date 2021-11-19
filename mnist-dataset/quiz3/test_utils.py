@@ -16,7 +16,7 @@ def svm_load_predict(test_X,test_Y):
     return pred
 
 def tree_load_predict(test_X,test_Y):
-    svm = load(best_decisiontree_path)
-    pred = svm.predict(test_X)
+    tree = load(best_decisiontree_path)
+    pred = tree.predict(test_X)
     #acc = metrics.accuracy_score(y_true = test_Y,y_pred = pred)
     return pred
