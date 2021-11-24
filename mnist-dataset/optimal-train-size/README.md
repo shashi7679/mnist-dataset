@@ -46,3 +46,4 @@
 - 70% of training data is the final result because of two reasons:-
   - Maximum f1-score on the test data, given minimal training data.
   - All elements except the principle diagonal of its Confusion matrix is zero.  
+- Therefore, 70% of the training data or appox. 72% of complete data is sufficent to train a very accurate model
