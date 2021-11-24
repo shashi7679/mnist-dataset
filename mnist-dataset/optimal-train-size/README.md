@@ -1,6 +1,9 @@
 # Training the SVC on various train data splits and analysing its results
 - Training:Validation:Test Split = 80:10:10
 
+## Training Data Vs. Validation Metrics Vs. Hyperparameter Vs. Test Metrics Chart
+![Chart](https://drive.google.com/uc?export=view&id=11VfaaUgq1bvRi2cI-RZnxuusQOEgydBF)
+
 ## Confusion Matrix
 
 ### Using 10% of Training Data
