@@ -1,6 +1,6 @@
 import numpy as np
 from numpy.lib.arraysetops import unique
-import pandas as pd
+#import pandas as pd
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -89,7 +89,7 @@ for i in range(3):
     best_model_collection.append(max_valid_f1_score)
     overfit_data_collection.append(worst_overfitting_models)
 
-
+'''
 df1 = pd.DataFrame(best_model_collection)
 df2 = pd.DataFrame(overfit_data_collection)
 df1.to_csv("Best_hyperparameter.csv")
@@ -101,4 +101,4 @@ print(df1)
 print("\n")
 print("+++++++++++++++++ Overfitting +++++++++++++++++++++++++++++")
 print(df2)
-print("\n")
+print("\n")'''
